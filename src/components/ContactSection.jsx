@@ -1,15 +1,26 @@
 import { Instagram, Linkedin, Mail, Map, Phone, Send } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useToast } from "../hooks/use-toast"
+import { useState } from "react";
 
 
 export const ContactSection = () => {
+    const { toast } = useToast();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        setIsSubmitting(true);
 
-        SetTimeout(() => {
-            
+        setTimeout(() => {
+            toast({
+                title: "Message Sent",
+                description: "Thank you for reaching out! I will get back to you soon.",
+            });
+            setIsSubmitting(false);
         }, 1500);
+        
     }
     return (
         <section 
@@ -52,7 +63,8 @@ export const ContactSection = () => {
                                 <div>
                                     <h4 className="font-medium"> Phone</h4>
                                     <a 
-                                        href="tel:+6285933795235" 
+                                        href="http://wa.me/6285933795235" 
+                                        target="_blank"
                                         className="text-muted-foreground hover:text-primary transition-colors"
                                     >
                                         +62 859-3379-5235
@@ -93,7 +105,7 @@ export const ContactSection = () => {
                         </div>
                     </div>
 
-                    <div className="bg-card p-8 rounded-lg shadow-xs">
+                    <div className="bg-card p-8 rounded-lg shadow-xs" onSubmit={handleSubmit}>
                         <h3 className="text-2xl font-semibold mb-6">
                             Send a Message
                         </h3>
@@ -154,12 +166,13 @@ export const ContactSection = () => {
 
                             <button
                                 type="submit"
+                                disabled={isSubmitting}
                                 className={cn(
                                     "cosmic-button w-full flex items-center justify-center gap-2",
 
                                 )}
                             >
-                                Send Message
+                                {isSubmitting ? "Sending..." : "Send Message"}
                                 <Send size={16} />
                             </button>
                         </form>
