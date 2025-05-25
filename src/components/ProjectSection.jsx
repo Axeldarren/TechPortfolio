@@ -13,6 +13,15 @@ const projects = [
   },
   {
     id: 2,
+    title: "C++ Password Manager",
+    description: "A C++ password manager project that uses linked lists and classes to store encrypted credentials, secured with a master password.",
+    image: "/projects/Password.jpg",
+    tags: ["C++", "Data Structures", "Encryption"],
+    demoURL: "#",
+    githubURL: "https://github.com/Axeldarren/Password-Manager-Project-DSA-Repositories",
+  },
+  {
+    id: 3,
     title: "GenLingo: Interactive Slang Learning App ",
     description: "GenLingo is a Python-based app using Falcon 180B to teach Gen Z slang interactively through chatbot conversations.",
     image: "/projects/Genlingo.jpg",
@@ -21,13 +30,13 @@ const projects = [
     githubURL: "https://github.com/Axeldarren/GenLingo",
   },
   {
-    id: 3,
-    title: "C++ Password Manager",
-    description: "A C++ password manager project that uses linked lists and classes to store encrypted credentials, secured with a master password.",
-    image: "/projects/Password.jpg",
-    tags: ["C++", "Data Structures", "Encryption"],
+    id: 4,
+    title: "C++ Scientific Calculator",
+    description: "A scientific calculator built in C++ that supports standard and advanced mathematical operations using classes and function overloading.",
+    image: "/projects/Calculator.jpg",
+    tags: ["C++", "Math Functions", "OOP"],
     demoURL: "#",
-    githubURL: "https://github.com/Axeldarren/Password-Manager-Project-DSA-Repositories",
+    githubURL: "https://github.com/Axeldarren/Scientific-Calculator-Project",
   },
 ];
 
