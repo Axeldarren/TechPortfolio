@@ -34,9 +34,19 @@ const projects = [
     title: "C++ Scientific Calculator",
     description: "A scientific calculator built in C++ that supports standard and advanced mathematical operations using classes and function overloading.",
     image: "/projects/Calculator.jpg",
-    tags: ["C++", "Math Functions", "OOP"],
+    tags: ["C++", "Data Structures", "OOP"],
     demoURL: "#",
     githubURL: "https://github.com/Axeldarren/Scientific-Calculator-Project",
+  },
+  {
+    id: 5,
+    title: "Skin Cancer Detection App",
+    description:
+      "Skin cancer detection app using ML on Compute Engine and Firestore, integrated via secure GCP REST API.",
+    image: "/projects/SkinCancer.png",
+    tags: ["Machine Learning", "Google Cloud", "Node.js", "HAPI.js"],
+    demoURL: "#",
+    githubURL: "https://github.com/Axeldarren/Skin_Cancer_Detection_App",
   },
 ];
 
