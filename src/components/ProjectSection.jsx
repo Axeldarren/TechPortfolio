@@ -7,6 +7,7 @@ const projects = [
     description:
       "Hyve is a MERN-based note-taking app with gamification and OAuth login for collaborative academic use.",
     image: "/projects/Hyve.jpg",
+    altText: "Screenshot of the Hyve note-taking app interface", 
     tags: ["React", "Tailwind CSS", "Express.js", "Node.js", "MongoDB"],
     demoURL: "https://hyveapp.netlify.app/",
     githubURL: "https://github.com/Axeldarren/Hyve-Notes-App",
@@ -16,8 +17,9 @@ const projects = [
     title: "C++ Password Manager",
     description: "A C++ password manager project that uses linked lists and classes to store encrypted credentials, secured with a master password.",
     image: "/projects/Password.jpg",
+    altText: "Image representing a secure password manager",
     tags: ["C++", "Data Structures", "Encryption"],
-    demoURL: "#",
+    demoURL: "#", 
     githubURL: "https://github.com/Axeldarren/Password-Manager-Project-DSA-Repositories",
   },
   {
@@ -25,6 +27,7 @@ const projects = [
     title: "GenLingo: Interactive Slang Learning App ",
     description: "GenLingo is a Python-based app using Falcon 180B to teach Gen Z slang interactively through chatbot conversations.",
     image: "/projects/Genlingo.jpg",
+    altText: "Screenshot of GenLingo, a chatbot for learning slang",
     tags: ["Python", "Streamlit", "AI"],
     demoURL: "https://gen-lingo.streamlit.app/",
     githubURL: "https://github.com/Axeldarren/GenLingo",
@@ -34,18 +37,20 @@ const projects = [
     title: "C++ Scientific Calculator",
     description: "A scientific calculator built in C++ that supports standard and advanced mathematical operations using classes and function overloading.",
     image: "/projects/Calculator.jpg",
+    altText: "Image of a scientific calculator displaying numbers",
     tags: ["C++", "Data Structures", "OOP"],
-    demoURL: "#",
+    demoURL: "#", 
     githubURL: "https://github.com/Axeldarren/Scientific-Calculator-Project",
   },
   {
     id: 5,
     title: "Skin Cancer Detection App",
     description:
-      "Skin cancer detection app using ML on Compute Engine and Firestore, integrated via secure GCP REST API.",
+      "The backend of Skin cancer detection app using ML on Compute Engine and Firestore, integrated via secure GCP REST API.",
     image: "/projects/SkinCancer.png",
+    altText: "Image of a skin cancer detection application interface",
     tags: ["Machine Learning", "Google Cloud", "Node.js", "HAPI.js"],
-    demoURL: "#",
+    demoURL: "#", 
     githubURL: "https://github.com/Axeldarren/Skin_Cancer_Detection_App",
   },
 ];
@@ -66,13 +71,14 @@ export const ProjectSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, key) => (
             <div
-              key={key}
+              key={key} 
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
               <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  
+                  alt={project.altText || project.title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
@@ -80,7 +86,7 @@ export const ProjectSection = () => {
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                    <span key={tag} className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
                       {tag}
                     </span>
                   ))}
@@ -92,21 +98,27 @@ export const ProjectSection = () => {
                 </p>
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-3">
-                    {project.demoURL !== "#" && (
+                    {project.demoURL && project.demoURL !== "#" && ( 
                       <a
                         href={project.demoURL}
                         target="_blank"
+                        rel="noopener noreferrer" 
                         className="text-foreground/80 hover:text-primary transition-colors duration-300"
                       >
                         <ExternalLink size={20} />
+                        {/* Optional: Add visually hidden text for better accessibility and crawlability for links */}
+                        <span className="sr-only">View {project.title} Demo</span> 
                       </a>
                     )}
                     <a
                       href={project.githubURL}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                     >
                       <Github size={20} />
+                      {/* Optional: Add visually hidden text for better accessibility and crawlability for links */}
+                      <span className="sr-only">View {project.title} on GitHub</span>
                     </a>
                   </div>
                 </div>
@@ -119,6 +131,7 @@ export const ProjectSection = () => {
             <a 
                 className="cosmic-button w-fit flex items-center mx-auto gap-2" 
                 target="_blank"
+                rel="noopener noreferrer" 
                 href="https://github.com/Axeldarren"
             >
                 Check My Github <ArrowRight size={15} />
