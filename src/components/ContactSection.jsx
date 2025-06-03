@@ -5,14 +5,13 @@ import { useState } from "react";
 
 export const ContactSection = () => {
     const { toast } = useToast();
-    const [isSubmitting, setIsSubmitting] = useState(false); // This state will still be used to disable the button
-    const [formData, setFormData] = useState({ // Add state for form inputs
+    const [isSubmitting, setIsSubmitting] = useState(false); 
+    const [formData, setFormData] = useState({ 
         name: '',
         email: '',
         message: '',
     });
 
-    // Handle input changes to update form state
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -105,7 +104,7 @@ export const ContactSection = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-medium"> Location</h4>
-                                    <span // Changed to span as it's not a clickable link
+                                    <span
                                         className="text-muted-foreground"
                                     >
                                         Jakarta, Indonesia
@@ -133,12 +132,11 @@ export const ContactSection = () => {
                         </div>
                     </div>
 
-                    <div className="bg-card p-8 rounded-lg shadow-xs"> {/* Removed onSubmit from div */}
+                    <div className="bg-card p-8 rounded-lg shadow-xs">
                         <h3 className="text-2xl font-semibold mb-6">
                             Send a Message
                         </h3>
 
-                        {/* Add the warning message here */}
                         <p className="mb-6 text-amber-600 text-center text-sm">
                             <b>Note:</b> This form is currently under development. Please contact me directly via email at{" "}
                             <a href="mailto:axeldarren.suryanto@gmail.com" className="underline hover:text-primary transition-colors">
@@ -147,7 +145,7 @@ export const ContactSection = () => {
                         </p>
 
 
-                        <form className="space-y-6" onSubmit={handleSubmit}> {/* Added onSubmit to form */}
+                        <form className="space-y-6" onSubmit={handleSubmit}> 
                             <div>
                                 <label
                                     htmlFor="name"
@@ -162,7 +160,7 @@ export const ContactSection = () => {
                                     required
                                     className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                                     placeholder="John Doe..."
-                                    value={formData.name} // Controlled input
+                                    value={formData.name} 
                                     onChange={handleChange}
                                 />
                             </div>
@@ -181,7 +179,7 @@ export const ContactSection = () => {
                                     required
                                     className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                                     placeholder="john@gmail.com"
-                                    value={formData.email} // Controlled input
+                                    value={formData.email} 
                                     onChange={handleChange}
                                 />
                             </div>
@@ -199,7 +197,7 @@ export const ContactSection = () => {
                                     required
                                     className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
                                     placeholder="Hi Axel, I would like to discuss..."
-                                    value={formData.message} // Controlled input
+                                    value={formData.message} 
                                     onChange={handleChange}
                                 ></textarea>
                             </div>
@@ -209,7 +207,7 @@ export const ContactSection = () => {
                                 disabled={isSubmitting}
                                 className={cn(
                                     "cosmic-button w-full flex items-center justify-center gap-2",
-                                    isSubmitting && "opacity-70 cursor-not-allowed" // Added disabled styling
+                                    isSubmitting && "opacity-70 cursor-not-allowed" 
                                 )}
                             >
                                 {isSubmitting ? "Opening Email..." : "Send Message"} {/* Changed button text */}
