@@ -24,7 +24,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "GenLingo: Interactive Slang Learning App ",
+    title: "GenLingo: AI Interactive Slang Learning App ",
     description: "GenLingo is a Python-based app using Falcon 180B to teach Gen Z slang interactively through chatbot conversations.",
     image: "/projects/Genlingo.jpg",
     altText: "Screenshot of GenLingo, a chatbot for learning slang",
@@ -38,7 +38,7 @@ const projects = [
     description: "A scientific calculator built in C++ that supports standard and advanced mathematical operations using classes and function overloading.",
     image: "/projects/Calculator.jpg",
     altText: "Image of a scientific calculator displaying numbers",
-    tags: ["C++", "Data Structures", "OOP"],
+    tags: ["C++", "Data Structures", "OOP", "Function Overloading"],
     demoURL: "#", 
     githubURL: "https://github.com/Axeldarren/Scientific-Calculator-Project",
   },
@@ -52,6 +52,17 @@ const projects = [
     tags: ["Machine Learning", "Google Cloud", "Node.js", "HAPI.js"],
     demoURL: "#", 
     githubURL: "https://github.com/Axeldarren/Skin_Cancer_Detection_App",
+  },
+  {
+    id: 6,
+    title: "PRDify: AI-Powered PRD Automation Tool",
+    description:
+      "PRDify automates Product Requirement Document (PRD) creation using LLMs for intelligent suggestions and content generation.",
+    image: "/projects/PRDify.jpg", 
+    altText: "Image representing an AI tool for generating product requirement documents",
+    tags: ["LLM", "Product Management", "AI", "Automation"], 
+    demoURL: "#", 
+    githubURL: "https://github.com/C242-PM02-TEAM"
   },
 ];
 
