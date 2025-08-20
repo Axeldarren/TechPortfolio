@@ -14,33 +14,34 @@ const projects = [
   },
   {
     id: 2,
-    title: "C++ Password Manager",
-    description: "A C++ password manager project that uses linked lists and classes to store encrypted credentials, secured with a master password.",
-    image: "/projects/Password.jpg",
-    altText: "Image representing a secure password manager",
-    tags: ["C++", "Data Structures", "Encryption"],
-    demoURL: "#", 
-    githubURL: "https://github.com/Axeldarren/Password-Manager-Project-DSA-Repositories",
+    title: "ITList: Project Management Web App",
+    description: "A full-stack project management application engineered to centralize project tracking, time management, and reporting for internal IT teams.",
+    image: "/projects/ITList.jpg",
+    altText: "Screenshot of the ITList project management app dashboard",
+    tags: ["Next.js", "Express.js", "MySQL", "Prisma", "WebSockets"],
+    demoURL: "#",
+    githubURL: "https://github.com/Axeldarren/itlist"
   },
   {
     id: 3,
+    title: "PRDify: AI-Powered PRD Automation Tool",
+    description:
+      "PRDify automates Product Requirement Document (PRD) creation using LLMs for intelligent suggestions and content generation.",
+    image: "/projects/PRDify.jpg", 
+    altText: "Image representing an AI tool for generating product requirement documents",
+    tags: ["Next.js", "LLM", "Product Management", "AI", "Automation"],
+    demoURL: "#",
+    githubURL: "https://github.com/C242-PM02-TEAM"
+  },
+  {
+    id: 4,
     title: "GenLingo: AI Interactive Slang Learning App ",
     description: "GenLingo is a Python-based app using Falcon 180B to teach Gen Z slang interactively through chatbot conversations.",
     image: "/projects/Genlingo.jpg",
     altText: "Screenshot of GenLingo, a chatbot for learning slang",
     tags: ["Python", "Streamlit", "AI"],
-    demoURL: "https://gen-lingo.streamlit.app/",
+    demoURL: "https://genlingo.streamlit.app/",
     githubURL: "https://github.com/Axeldarren/GenLingo",
-  },
-  {
-    id: 4,
-    title: "C++ Scientific Calculator",
-    description: "A scientific calculator built in C++ that supports standard and advanced mathematical operations using classes and function overloading.",
-    image: "/projects/Calculator.jpg",
-    altText: "Image of a scientific calculator displaying numbers",
-    tags: ["C++", "Data Structures", "OOP", "Function Overloading"],
-    demoURL: "#", 
-    githubURL: "https://github.com/Axeldarren/Scientific-Calculator-Project",
   },
   {
     id: 5,
@@ -55,14 +56,13 @@ const projects = [
   },
   {
     id: 6,
-    title: "PRDify: AI-Powered PRD Automation Tool",
-    description:
-      "PRDify automates Product Requirement Document (PRD) creation using LLMs for intelligent suggestions and content generation.",
-    image: "/projects/PRDify.jpg", 
-    altText: "Image representing an AI tool for generating product requirement documents",
-    tags: ["LLM", "Product Management", "AI", "Automation"], 
+    title: "C++ Password Manager",
+    description: "A C++ password manager project that uses linked lists and classes to store encrypted credentials, secured with a master password.",
+    image: "/projects/Password.jpg",
+    altText: "Image representing a secure password manager",
+    tags: ["C++", "Data Structures", "Encryption"],
     demoURL: "#", 
-    githubURL: "https://github.com/C242-PM02-TEAM"
+    githubURL: "https://github.com/Axeldarren/Password-Manager-Project-DSA-Repositories",
   },
 ];
 

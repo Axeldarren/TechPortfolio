@@ -12,13 +12,11 @@ export const AboutSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
                         <h3 className="text-2xl font-semibold">
-                            Software Engineer & Project Manager
+                            Full Stack Developer & Project Manager
                         </h3>
 
                         <p className="text-muted-foreground">
-                            With 3+ years of experience, I specialize in backend development using Node.js, Express, and PostgreSQL, 
-                            and I'm also a capable fullstack developer with React, Next.js, and Tailwind CSS. My skill set extends to cloud
-                            infrastructure on GCP and practical experience working on AI-powered solutions.
+                            With 3+ years of experience, I specialize in full stack development using React, Next.js, Node.js, Express, and PostgreSQL. I build seamless, scalable web applications from UI to backend, leveraging Tailwind CSS for design and deploying to cloud platforms like GCP.
                         </p>
 
                         <p className="text-muted-foreground">
@@ -51,9 +49,9 @@ export const AboutSection = () => {
                                     <Code className="h-6 w-6 text-primary"/>
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="font-semibold text-lg"> Backend Development</h4>
+                                    <h4 className="font-semibold text-lg"> Full Stack Development</h4>
                                     <p className="text-muted-foreground">
-                                        Proficient in building scalable APIs with Node.js, Express, and PostgreSQL — optimized for performance, security, and cloud deployment.
+                                        Expert in building robust web applications with React, Next.js, Node.js, Express, and PostgreSQL — delivering seamless user experiences and scalable APIs.
                                     </p>
                                 </div>
                             </div>
@@ -64,9 +62,9 @@ export const AboutSection = () => {
                                     <User className="h-6 w-6 text-primary"/>
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="font-semibold text-lg"> Frontend Development</h4>
+                                    <h4 className="font-semibold text-lg"> Backend Development</h4>
                                     <p className="text-muted-foreground">
-                                        Experienced in crafting responsive, modern interfaces using React, Next.js, and Tailwind CSS — focused on usability and accessibility.
+                                        Expert in building robust server-side applications and APIs with Node.js, Express, and PostgreSQL — delivering scalable and secure backend solutions.
                                     </p>
                                 </div>
                             </div>
