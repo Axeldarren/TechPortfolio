@@ -119,10 +119,7 @@ export default function HomePage({ goTo }) {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, marginTop: 56, alignItems: 'start' }} className="about-grid">
             <div className="reveal from-left" style={{ position: 'relative' }}>
               <div style={{ aspectRatio: '4/3', background: 'var(--card)', borderRadius: 20, border: '1px solid var(--card-border)', overflow: 'hidden', position: 'relative' }}>
-                <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 10, background: 'linear-gradient(135deg,var(--bg2),var(--card))' }}>
-                  <div style={{ width: 100, height: 100, borderRadius: '50%', background: 'var(--accent-dim2)', border: '2px solid var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, fontWeight: 800, color: 'var(--accent)', fontFamily: 'var(--mono)' }}>ADS</div>
-                  <span style={{ fontSize: 11, fontFamily: 'var(--mono)', color: 'var(--fg3)', letterSpacing: '.1em' }}>PHOTO</span>
-                </div>
+                <img src="/Axel_Photo.jpg" alt="Axel Darren Suryanto" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', bottom: 0, left: 0, width: 60, height: 4, background: 'var(--accent)' }} />
               </div>
               <div style={{ position: 'absolute', top: 20, right: -8, background: 'var(--accent)', color: '#fff', padding: '6px 14px', borderRadius: 8, fontSize: 11, fontFamily: 'var(--mono)', fontWeight: 500, letterSpacing: '.08em' }}>3+ yrs exp.</div>
