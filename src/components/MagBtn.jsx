@@ -1,0 +1,30 @@
+import { useMagnetic } from '../hooks';
+
+export default function MagBtn({ href, onClick, accent, children, target }) {
+  const ref = useMagnetic(0.25);
+  const base = {
+    background: accent ? 'var(--accent)' : 'transparent',
+    color: accent ? '#fff' : 'var(--fg)',
+    textDecoration: 'none', padding: '12px 28px', borderRadius: 10,
+    fontWeight: 600, fontSize: 14, display: 'inline-block',
+    border: '1px solid', borderColor: accent ? 'var(--accent)' : 'var(--card-border)',
+    transition: 'all .25s, box-shadow .3s', cursor: 'none',
+  };
+  const onEnter = e => {
+    if (accent) { e.currentTarget.style.boxShadow = '0 8px 32px var(--accent-dim2)'; }
+    else { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)'; }
+  };
+  const onLeave = e => {
+    e.currentTarget.style.boxShadow = 'none';
+    if (!accent) { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--fg)'; }
+  };
+
+  return (
+    <span ref={ref} style={{ display: 'inline-block' }}>
+      {href
+        ? <a href={href} target={target} style={base} onMouseEnter={onEnter} onMouseLeave={onLeave}>{children}</a>
+        : <button onClick={onClick} style={{ ...base, fontFamily: 'var(--font)' }} onMouseEnter={onEnter} onMouseLeave={onLeave}>{children}</button>
+      }
+    </span>
+  );
+}
