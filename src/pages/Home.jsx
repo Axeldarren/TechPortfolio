@@ -119,7 +119,7 @@ export default function HomePage({ goTo }) {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, marginTop: 56, alignItems: 'start' }} className="about-grid">
             <div className="reveal from-left" style={{ position: 'relative' }}>
               <div style={{ aspectRatio: '4/3', background: 'var(--card)', borderRadius: 20, border: '1px solid var(--card-border)', overflow: 'hidden', position: 'relative' }}>
-                <img src="/Axel_Photo.jpg" alt="Axel Darren Suryanto" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/Axel_photos.jpg" alt="Axel Darren Suryanto" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', bottom: 0, left: 0, width: 60, height: 4, background: 'var(--accent)' }} />
               </div>
               <div style={{ position: 'absolute', top: 20, right: -8, background: 'var(--accent)', color: '#fff', padding: '6px 14px', borderRadius: 8, fontSize: 11, fontFamily: 'var(--mono)', fontWeight: 500, letterSpacing: '.08em' }}>3+ yrs exp.</div>
