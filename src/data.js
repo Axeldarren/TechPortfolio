@@ -127,12 +127,12 @@ export const experiences = [
   },
   {
     id: 4,
-    company: 'Bangkit Academy',
+    company: 'Bangkit Academy Led by Google, Tokopedia, Gojek & Traveloka',
     location: 'Jakarta, ID',
     period: 'Sep 2024 – Jan 2025',
     role: 'Cloud Engineer Intern',
     type: 'cloud',
-    about: 'Led by Google, Tokopedia, Gojek & Traveloka — develops top tech talent for Indonesia.',
+    about: 'Bangkit Academy, led by Google, Tokopedia, Gojek & Traveloka — develops top tech talent for Indonesia.',
     bullets: [
       'Selected for Company Capstone Track, leading a team of 4 to develop PRDify using LLMs and Google Cloud.',
       'Designed microservice architecture: Next.js frontend + Express.js backend on Cloud Run, GCS, and SQL.',
