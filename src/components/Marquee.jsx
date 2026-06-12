@@ -13,7 +13,7 @@ export default function Marquee() {
       background: 'var(--bg2)',
       padding: '12px 0',
     }}>
-      <div className="marquee-track">
+      <div className="marquee-track" aria-hidden="true">
         {[...items, ...items].map((item, i) => (
           <span key={i} style={{
             display: 'inline-flex', alignItems: 'center', gap: 24, paddingRight: 40,

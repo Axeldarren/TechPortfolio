@@ -34,7 +34,7 @@ export default function ProjectsPage() {
           <button
             key={t} onClick={() => setFilter(t)}
             style={{
-              padding: '6px 14px', borderRadius: 99, fontSize: 11, fontWeight: 500,
+              padding: '9px 16px', borderRadius: 99, fontSize: 11, fontWeight: 500,
               cursor: 'none', fontFamily: 'var(--mono)', letterSpacing: '.04em',
               border: '1px solid',
               background: filter === t ? 'var(--accent)' : 'transparent',

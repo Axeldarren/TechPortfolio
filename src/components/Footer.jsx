@@ -16,7 +16,7 @@ export default function Footer({ goTo }) {
             <button
               key={p}
               onClick={() => { goTo(p); window.scrollTo(0, 0); }}
-              style={{ background: 'none', border: 'none', cursor: 'none', fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--fg3)', padding: 0, letterSpacing: '.04em', transition: 'color .2s' }}
+              style={{ background: 'none', border: 'none', cursor: 'none', fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--fg3)', padding: '12px 4px', letterSpacing: '.04em', transition: 'color .2s' }}
               onMouseEnter={e => { e.target.style.color = 'var(--accent)'; }}
               onMouseLeave={e => { e.target.style.color = 'var(--fg3)'; }}
             >
@@ -25,7 +25,7 @@ export default function Footer({ goTo }) {
           ))}
         </div>
 
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--fg3)' }}>© 2025 Axel Darren Suryanto</span>
+        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--fg3)' }}>© {new Date().getFullYear()} Axel Darren Suryanto</span>
       </div>
     </footer>
   );

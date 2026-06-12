@@ -41,8 +41,38 @@ body {
   -webkit-font-smoothing: antialiased;
   cursor: none;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 @media (hover: none) { body { cursor: auto; } }
+
+button, a { touch-action: manipulation; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* 100vh fallback; dvh tracks the real viewport as mobile browser UI collapses */
+.hero-section { min-height: 100vh; min-height: 100dvh; }
+
+/* ── Hero split layout ── */
+.hero-grid {
+  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px; align-items: center;
+}
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero-scroll-hint { display: none; }
+}
+
+/* ── Terminal cursor ── */
+.term-cursor {
+  display: inline-block; width: 8px; height: 14px;
+  background: var(--accent); margin-left: 2px; vertical-align: -2px;
+  animation: blink 1.1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
 
 ::selection { background: var(--accent); color: #fff; }
 ::-webkit-scrollbar { width: 4px; }
@@ -92,6 +122,14 @@ body.cursor-hover #cursor-ring { width: 54px; height: 54px; opacity: 0.2; }
 .reveal-delay-4 { transition-delay: .32s; }
 .reveal-delay-5 { transition-delay: .40s; }
 .reveal-delay-6 { transition-delay: .48s; }
+
+/* On mobile the grids collapse to one column, so items enter the viewport
+   one at a time — long stagger delays just make each card feel laggy. */
+@media (max-width: 768px) {
+  .reveal { transform: translateY(20px); }
+  .reveal-delay-1, .reveal-delay-2, .reveal-delay-3,
+  .reveal-delay-4, .reveal-delay-5, .reveal-delay-6 { transition-delay: .05s; }
+}
 
 /* ── Word Animation (Hero) ── */
 .word-anim span {
@@ -182,10 +220,37 @@ body.cursor-hover #cursor-ring { width: 54px; height: 54px; opacity: 0.2; }
 .timeline-dot.active { background: var(--accent); box-shadow: 0 0 0 4px var(--accent-dim); }
 
 /* ── 3D Tilt Card ── */
-.tilt-card { transform-style: preserve-3d; transition: box-shadow .3s; }
+/* Must repeat the .reveal opacity/transform transition: a bare
+   `transition: box-shadow` here would replace it and kill the scroll-reveal. */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition:
+    box-shadow .3s,
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* While hovered, transform must track the cursor for the 3D tilt;
+   on mouse-leave the slow transition above gives a soft settle. */
+@media (hover: hover) {
+  .tilt-card.visible:hover { transition: box-shadow .3s, transform .15s ease-out; }
+}
 
 /* ── Hero glow spotlight ── */
 .hero-glow { position: absolute; inset: 0; pointer-events: none; z-index: 0; transition: background .05s; }
+
+/* Tap feedback on touch devices, where hover/tilt effects never fire */
+@media (hover: none) {
+  .tilt-card:active { transform: scale(0.985); transition-duration: .15s; }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .word-anim span { opacity: 1; transform: none; transition: none; }
+  .page-enter { animation: none; }
+  .marquee-track { animation-duration: 60s; }
+  .orb, .gradient-text { animation: none; }
+  html { scroll-behavior: auto; }
+}
 
 /* ── Responsive helpers ── */
 @media (max-width: 640px)  { .desktop-nav { display: none !important; } }

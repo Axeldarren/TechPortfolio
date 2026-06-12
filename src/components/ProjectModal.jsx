@@ -14,7 +14,7 @@ export default function ProjectModal({ project, onClose }) {
     window.addEventListener('keydown', onKey);
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = ''; };
-  }, [open]);
+  }, [open, onClose]);
 
   if (!mounted) return null;
 
@@ -32,9 +32,10 @@ export default function ProjectModal({ project, onClose }) {
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom,transparent 20%,var(--bg) 100%)' }} />
               <button
                 onClick={onClose}
+                aria-label="Close project details"
                 style={{
                   position: 'absolute', top: 16, right: 16,
-                  width: 38, height: 38, borderRadius: '50%',
+                  width: 44, height: 44, borderRadius: '50%',
                   border: '1.5px solid rgba(255,255,255,.3)',
                   background: 'oklch(0 0 0/.45)', backdropFilter: 'blur(8px)',
                   color: '#fff', fontSize: 18, cursor: 'none',

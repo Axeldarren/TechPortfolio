@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Mail, MapPin, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useReveal } from '../hooks';
 import { useToast } from '../hooks/use-toast';
@@ -63,16 +64,17 @@ export default function ContactPage() {
   };
 
   const inputStyle = {
-    width: '100%', padding: '12px 16px', borderRadius: 8, fontSize: 14,
+    // 16px minimum — smaller font-size makes iOS Safari zoom in on focus
+    width: '100%', padding: '12px 16px', borderRadius: 8, fontSize: 16,
     border: '1px solid var(--card-border)', background: 'var(--bg)',
     color: 'var(--fg)', fontFamily: 'var(--font)', outline: 'none',
     transition: 'border-color .2s',
   };
 
   const contacts = [
-    { icon: '✉', label: 'Email', val: 'axeldarren.suryanto@gmail.com', href: 'mailto:axeldarren.suryanto@gmail.com' },
-    { icon: '📍', label: 'Location', val: 'Jakarta, Indonesia', href: null },
-    { icon: '💬', label: 'WhatsApp', val: '+62 859-3379-5235', href: 'http://wa.me/6285933795235' },
+    { icon: Mail, label: 'Email', val: 'axeldarren.suryanto@gmail.com', href: 'mailto:axeldarren.suryanto@gmail.com' },
+    { icon: MapPin, label: 'Location', val: 'Jakarta, Indonesia', href: null },
+    { icon: MessageCircle, label: 'WhatsApp', val: '+62 859-3379-5235', href: 'https://wa.me/6285933795235' },
   ];
 
   const socials = [
@@ -98,7 +100,7 @@ export default function ContactPage() {
           <div className="reveal reveal-delay-2" style={{ display: 'flex', flexDirection: 'column', gap: 24, marginBottom: 48 }}>
             {contacts.map(item => (
               <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--accent-dim)', border: '1px solid var(--accent-dim2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>{item.icon}</div>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--accent-dim)', border: '1px solid var(--accent-dim2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', flexShrink: 0 }} aria-hidden="true"><item.icon size={18} /></div>
                 <div>
                   <div style={{ fontSize: 11, fontFamily: 'var(--mono)', color: 'var(--fg3)', letterSpacing: '.08em', marginBottom: 2 }}>{item.label}</div>
                   {item.href

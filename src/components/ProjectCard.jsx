@@ -1,14 +1,15 @@
 import { use3DTilt } from '../hooks';
 import Tag from './Tag';
 
-function ExtLink({ href, label }) {
+function ExtLink({ href, label, name }) {
   if (!href) return null;
   return (
     <a
       href={href} target="_blank" rel="noopener noreferrer"
       onClick={e => e.stopPropagation()}
+      aria-label={name}
       style={{
-        width: 30, height: 30, borderRadius: 7,
+        width: 34, height: 34, borderRadius: 7,
         border: '1px solid var(--card-border)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         textDecoration: 'none', color: 'var(--fg2)', fontSize: 11,
@@ -44,6 +45,8 @@ export default function ProjectCard({ project, delay, large, onOpen }) {
         <img
           src={project.image}
           alt={project.title}
+          loading="lazy"
+          decoding="async"
           style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .6s cubic-bezier(0.16,1,0.3,1)' }}
           onMouseEnter={e => { e.target.style.transform = 'scale(1.07)'; }}
           onMouseLeave={e => { e.target.style.transform = 'scale(1)'; }}
@@ -72,8 +75,8 @@ export default function ProjectCard({ project, delay, large, onOpen }) {
             <h3 style={{ fontWeight: 700, fontSize: large ? 19 : 16, letterSpacing: '-.02em' }}>{project.title}</h3>
           </div>
           <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
-            {project.demo && <ExtLink href={project.demo} label="↗" />}
-            <ExtLink href={project.github} label="GH" />
+            {project.demo && <ExtLink href={project.demo} label="↗" name={`${project.title} live demo`} />}
+            <ExtLink href={project.github} label="GH" name={`${project.title} on GitHub`} />
           </div>
         </div>
         <p style={{ color: 'var(--fg2)', fontSize: 13, lineHeight: 1.65, flex: 1 }}>{project.description}</p>

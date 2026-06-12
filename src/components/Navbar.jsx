@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Moon, Sun } from 'lucide-react';
 import { useMagnetic } from '../hooks';
 
 function ThemeToggle({ theme, toggle }) {
@@ -6,21 +7,27 @@ function ThemeToggle({ theme, toggle }) {
     <button
       onClick={toggle}
       style={{
-        background: 'var(--card)', border: '1px solid var(--card-border)',
-        borderRadius: 99, width: 44, height: 24, cursor: 'none',
-        position: 'relative', display: 'flex', alignItems: 'center', padding: 2,
+        background: 'none', border: 'none', cursor: 'none',
+        padding: 10, margin: -10, display: 'flex',
       }}
-      aria-label="Toggle theme"
+      aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
     >
-      <div style={{
-        width: 18, height: 18, borderRadius: '50%',
-        background: theme === 'dark' ? 'var(--accent)' : 'var(--fg)',
-        transform: theme === 'dark' ? 'translateX(20px)' : 'translateX(0)',
-        transition: 'transform .4s cubic-bezier(0.34,1.56,0.64,1)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      <span style={{
+        background: 'var(--card)', border: '1px solid var(--card-border)',
+        borderRadius: 99, width: 44, height: 24,
+        position: 'relative', display: 'flex', alignItems: 'center', padding: 2,
       }}>
-        <span style={{ fontSize: 9 }}>{theme === 'dark' ? '☽' : '○'}</span>
-      </div>
+        <span style={{
+          width: 18, height: 18, borderRadius: '50%',
+          background: theme === 'dark' ? 'var(--accent)' : 'var(--fg)',
+          transform: theme === 'dark' ? 'translateX(20px)' : 'translateX(0)',
+          transition: 'transform .4s cubic-bezier(0.34,1.56,0.64,1)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          color: theme === 'dark' ? '#fff' : 'var(--bg)',
+        }}>
+          {theme === 'dark' ? <Moon size={11} /> : <Sun size={11} />}
+        </span>
+      </span>
     </button>
   );
 }
@@ -76,10 +83,16 @@ export default function Navbar({ page, theme, toggleTheme, goTo }) {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   const nav = [['Home', 'home'], ['Experience', 'experience'], ['Projects', 'projects'], ['Contact', 'contact']];
   const go = p => { goTo(p); setMenuOpen(false); };
 
   return (
+    <>
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       padding: scrolled ? '12px 0' : '20px 0',
@@ -108,33 +121,49 @@ export default function Navbar({ page, theme, toggleTheme, goTo }) {
           <ThemeToggle theme={theme} toggle={toggleTheme} />
           <button
             onClick={() => setMenuOpen(v => !v)}
-            style={{ background: 'none', border: 'none', cursor: 'none', color: 'var(--fg)', padding: 4 }}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            style={{
+              background: 'none', border: 'none', cursor: 'none', color: 'var(--fg)',
+              width: 44, height: 44, margin: '-10px -10px -10px 0',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
           >
             {menuOpen ? <XIcon /> : <MenuIcon />}
           </button>
         </div>
       </div>
+    </nav>
 
+      {/* Outside <nav>: its backdrop-filter would otherwise become the containing
+          block for this fixed overlay, clipping the menu to the navbar strip. */}
       <div style={{
         position: 'fixed', inset: 0, background: 'var(--bg)', zIndex: 99,
-        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 36,
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 28,
         opacity: menuOpen ? 1 : 0, pointerEvents: menuOpen ? 'auto' : 'none',
-        transition: 'opacity .25s',
+        visibility: menuOpen ? 'visible' : 'hidden',
+        transition: 'opacity .3s, visibility .3s',
       }}>
-        {nav.map(([label, p]) => (
+        {nav.map(([label, p], i) => (
           <button
             key={p} onClick={() => go(p)}
+            tabIndex={menuOpen ? 0 : -1}
             style={{
               background: 'none', border: 'none', cursor: 'none',
-              fontSize: 28, fontWeight: 700,
+              fontSize: 28, fontWeight: 700, padding: '8px 24px',
               color: page === p ? 'var(--accent)' : 'var(--fg)',
               fontFamily: 'var(--font)',
+              opacity: menuOpen ? 1 : 0,
+              transform: menuOpen ? 'none' : 'translateY(16px)',
+              transition: menuOpen
+                ? `opacity .4s ${.08 + i * .06}s, transform .4s cubic-bezier(0.16,1,0.3,1) ${.08 + i * .06}s`
+                : 'opacity .2s, transform .2s',
             }}
           >
             {label}
           </button>
         ))}
       </div>
-    </nav>
+    </>
   );
 }

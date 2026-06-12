@@ -22,7 +22,7 @@ export default function MagBtn({ href, onClick, accent, children, target }) {
   return (
     <span ref={ref} style={{ display: 'inline-block' }}>
       {href
-        ? <a href={href} target={target} style={base} onMouseEnter={onEnter} onMouseLeave={onLeave}>{children}</a>
+        ? <a href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined} style={base} onMouseEnter={onEnter} onMouseLeave={onLeave}>{children}</a>
         : <button onClick={onClick} style={{ ...base, fontFamily: 'var(--font)' }} onMouseEnter={onEnter} onMouseLeave={onLeave}>{children}</button>
       }
     </span>

@@ -7,11 +7,16 @@ export function useReveal() {
         entries.forEach(e => {
           if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
         }),
-      { threshold: 0.08 }
+      { threshold: 0.08, rootMargin: '0px 0px -5% 0px' }
     );
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    return () => io.disconnect();
-  });
+    const observeAll = () =>
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => io.observe(el));
+    observeAll();
+    // Pick up .reveal elements mounted after this effect runs (e.g. filtered project grids)
+    const mo = new MutationObserver(observeAll);
+    mo.observe(document.body, { childList: true, subtree: true });
+    return () => { io.disconnect(); mo.disconnect(); };
+  }, []);
 }
 
 export function useMagnetic(strength = 0.3) {

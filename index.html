@@ -3,8 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Axel Darren Suryanto — Full Stack Developer & Project Manager portfolio." />
-    <link rel="icon" type="image/svg+xml" href="/weblogo.png" />
+    <link rel="icon" type="image/png" href="/weblogo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0e0c0a" />
+
+    <!-- Open Graph / link previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Axel Darren Suryanto — Full Stack Developer & Project Manager" />
+    <meta property="og:description" content="I build scalable backend systems and full-stack applications — blending engineering precision with strategic product thinking across 8+ internships." />
+    <meta property="og:url" content="https://axeltech-portfolio.vercel.app/" />
+    <meta property="og:image" content="https://axeltech-portfolio.vercel.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Axel Darren Suryanto — Full Stack Developer & Project Manager" />
+    <meta name="twitter:description" content="I build scalable backend systems and full-stack applications — blending engineering precision with strategic product thinking across 8+ internships." />
+    <meta name="twitter:image" content="https://axeltech-portfolio.vercel.app/og-image.jpg" />
+    <script>
+      // Set theme before first paint to avoid a light-mode flash for dark-theme users
+      (function () {
+        var stored = localStorage.getItem('portfolio-theme');
+        var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0e0c0a' : '#f5f2ee');
+      })();
+    </script>
     <title>Axel Darren Suryanto — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
