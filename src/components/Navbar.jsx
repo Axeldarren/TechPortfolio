@@ -32,17 +32,25 @@ function ThemeToggle({ theme, toggle }) {
   );
 }
 
-function MenuIcon() {
+function HamburgerIcon({ open }) {
+  const lineStyle = (y, rot, ty) => ({
+    position: 'absolute', left: 2, width: 18, height: 2, borderRadius: 1,
+    background: 'currentColor',
+    transition: 'transform .35s cubic-bezier(0.16,1,0.3,1), opacity .2s',
+    transformOrigin: 'center',
+    transform: open
+      ? `translateY(${ty}px) rotate(${rot}deg)`
+      : `translateY(${y}px) rotate(0deg)`,
+  });
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
-    </svg>
-  );
-}
-function XIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+    <svg width="20" height="20" viewBox="0 0 22 22" style={{ position: 'relative', display: 'block' }}>
+      <foreignObject x="0" y="0" width="22" height="22">
+        <div xmlns="http://www.w3.org/1999/xhtml" style={{ position: 'relative', width: 22, height: 22 }}>
+          <span style={lineStyle(5, 45, 10)} />
+          <span style={{ ...lineStyle(10, 0, 10), opacity: open ? 0 : 1 }} />
+          <span style={lineStyle(15, -45, 10)} />
+        </div>
+      </foreignObject>
     </svg>
   );
 }
@@ -129,7 +137,7 @@ export default function Navbar({ page, theme, toggleTheme, goTo }) {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}
           >
-            {menuOpen ? <XIcon /> : <MenuIcon />}
+            <HamburgerIcon open={menuOpen} />
           </button>
         </div>
       </div>

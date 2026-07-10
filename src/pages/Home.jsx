@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useReveal } from '../hooks';
 import { allProjects, experiences, typeColors, typeLabels } from '../data';
 import Marquee from '../components/Marquee';
+import LogoTicker from '../components/LogoTicker';
 import SectionLabel from '../components/SectionLabel';
 import MagBtn from '../components/MagBtn';
 import ProjectCard from '../components/ProjectCard';
@@ -112,6 +113,7 @@ export default function HomePage({ goTo }) {
         </div>
       </section>
 
+      <LogoTicker />
       <Marquee />
 
       {/* ── ABOUT SNIPPET ── */}
@@ -130,8 +132,8 @@ export default function HomePage({ goTo }) {
             <div>
               <h2 className="reveal reveal-delay-1" style={{ fontSize: 'clamp(26px,3.5vw,42px)', fontWeight: 800, lineHeight: 1.08, letterSpacing: '-.03em', marginBottom: 20 }}>Full Stack Developer<br />&amp; Project Manager</h2>
               <p className="reveal reveal-delay-2" style={{ color: 'var(--fg2)', lineHeight: 1.8, marginBottom: 16, fontSize: 15 }}>With 3+ years of experience, I build scalable web and mobile applications using React, Next.js, Flutter, Node.js, and PostgreSQL — from polished UIs to secure APIs on Google Cloud.</p>
-              <p className="reveal reveal-delay-3" style={{ color: 'var(--fg2)', lineHeight: 1.8, marginBottom: 32, fontSize: 15 }}>Beyond engineering, I lead cross-functional teams as a technical Project Manager — shipping products from planning to production across 8+ internship roles.</p>
-              <div className="reveal reveal-delay-4" style={{ display: 'flex', gap: 28, marginBottom: 32, flexWrap: 'wrap' }}>
+              <p className="reveal reveal-delay-3" style={{ color: 'var(--fg2)', lineHeight: 1.8, marginBottom: 32, fontSize: 15 }}>Beyond engineering, I lead cross-functional teams as a technical Project Manager — shipping products from planning to production across multiple industries.</p>
+              <div className="reveal reveal-delay-4" style={{ display: 'flex', gap: 28, marginBottom: 0, flexWrap: 'wrap' }}>
                 {[{ l: 'Based in', v: 'Jakarta, ID' }, { l: 'Experience', v: '8 Internships' }, { l: 'Open to', v: 'Full-time & Freelance' }].map(item => (
                   <div key={item.l}>
                     <div style={{ fontSize: 11, fontFamily: 'var(--mono)', color: 'var(--fg3)', letterSpacing: '.08em', marginBottom: 3 }}>{item.l}</div>
@@ -139,21 +141,14 @@ export default function HomePage({ goTo }) {
                   </div>
                 ))}
               </div>
-              <div className="reveal reveal-delay-5" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                <MagBtn accent onClick={() => goTo('contact')}>Get in Touch</MagBtn>
-                <MagBtn href="https://drive.google.com/uc?export=download&id=12bWf8EbfKedqNg9uT3zcQuBiNl7T9_sv" target="_blank">Download CV</MagBtn>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <Marquee />
-
       {/* ── FEATURED PROJECTS ── */}
       <section style={{ padding: '100px 32px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <SectionLabel label="03 / FEATURED WORK" />
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginTop: 32, marginBottom: 48, flexWrap: 'wrap', gap: 16 }}>
             <h2 className="reveal" style={{ fontSize: 'clamp(26px,4vw,48px)', fontWeight: 800, letterSpacing: '-.03em', lineHeight: 1.05 }}>Selected<br />Projects</h2>
             <MagBtn onClick={() => goTo('projects')}>View All Projects →</MagBtn>
@@ -162,7 +157,6 @@ export default function HomePage({ goTo }) {
         </div>
       </section>
 
-      <Marquee />
 
       {/* ── EXPERIENCE TEASER ── */}
       <section style={{ padding: '100px 32px', background: 'var(--bg2)', borderTop: '1px solid var(--card-border)', borderBottom: '1px solid var(--card-border)' }}>
@@ -197,7 +191,6 @@ export default function HomePage({ goTo }) {
       {/* ── CONTACT CTA ── */}
       <section style={{ padding: '100px 32px', textAlign: 'center' }}>
         <div style={{ maxWidth: 600, margin: '0 auto' }}>
-          <div className="reveal" style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--accent)', letterSpacing: '.12em', marginBottom: 24 }}>05 / CONTACT</div>
           <h2 className="reveal reveal-delay-1" style={{ fontSize: 'clamp(32px,5vw,64px)', fontWeight: 800, letterSpacing: '-.04em', lineHeight: 1, marginBottom: 20 }}>Let's Build <span className="gradient-text">Something</span></h2>
           <p className="reveal reveal-delay-2" style={{ color: 'var(--fg2)', lineHeight: 1.8, fontSize: 16, marginBottom: 40 }}>Have a project in mind, want to collaborate, or just want to say hi? My inbox is always open.</p>
           <div className="reveal reveal-delay-3" style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>

@@ -16,14 +16,17 @@ export default function MagBtn({ href, onClick, accent, children, target }) {
   };
   const onLeave = e => {
     e.currentTarget.style.boxShadow = 'none';
+    e.currentTarget.style.transform = '';
     if (!accent) { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--fg)'; }
   };
+  const onDown = e => { e.currentTarget.style.transform = 'scale(0.97) translateY(1px)'; };
+  const onUp = e => { e.currentTarget.style.transform = ''; };
 
   return (
     <span ref={ref} style={{ display: 'inline-block' }}>
       {href
-        ? <a href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined} style={base} onMouseEnter={onEnter} onMouseLeave={onLeave}>{children}</a>
-        : <button onClick={onClick} style={{ ...base, fontFamily: 'var(--font)' }} onMouseEnter={onEnter} onMouseLeave={onLeave}>{children}</button>
+        ? <a href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined} style={base} onMouseEnter={onEnter} onMouseLeave={onLeave} onMouseDown={onDown} onMouseUp={onUp}>{children}</a>
+        : <button onClick={onClick} style={{ ...base, fontFamily: 'var(--font)' }} onMouseEnter={onEnter} onMouseLeave={onLeave} onMouseDown={onDown} onMouseUp={onUp}>{children}</button>
       }
     </span>
   );

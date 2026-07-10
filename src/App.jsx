@@ -7,6 +7,7 @@ import HomePage from './pages/Home';
 import ExperiencePage from './pages/Experience';
 import ProjectsPage from './pages/Projects';
 import ContactPage from './pages/Contact';
+import NotFound from './pages/NotFound';
 import { Toaster } from './components/ui/toaster';
 
 const titles = {
@@ -42,15 +43,16 @@ function App() {
 
   return (
     <>
+      <a href="#main-content" style={{ position: 'absolute', top: -100, left: 16, background: 'var(--accent)', color: '#fff', padding: '8px 16px', borderRadius: 8, fontSize: 13, fontWeight: 600, zIndex: 1000, transition: 'top .2s' }} onFocus={e => { e.target.style.top = '12px'; }} onBlur={e => { e.target.style.top = '-100px'; }}>Skip to content</a>
       <Cursor />
       <Navbar page={page} theme={theme} toggleTheme={toggleTheme} goTo={goTo} />
-      <main style={{ minHeight: '100vh' }}>
+      <main id="main-content" style={{ minHeight: '100vh' }}>
         <Routes>
           <Route path="/" element={<HomePage goTo={goTo} />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFound goTo={goTo} />} />
         </Routes>
       </main>
       <Footer goTo={goTo} />

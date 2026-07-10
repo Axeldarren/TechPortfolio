@@ -90,9 +90,9 @@ export default function ContactPage() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, marginTop: 64, alignItems: 'start' }} className="contact-grid">
         {/* Left column */}
         <div>
-          <h2 className="reveal" style={{ fontSize: 'clamp(28px,5vw,56px)', fontWeight: 800, letterSpacing: '-.04em', lineHeight: 1, marginBottom: 24 }}>
+          <h1 className="reveal" style={{ fontSize: 'clamp(28px,5vw,56px)', fontWeight: 800, letterSpacing: '-.04em', lineHeight: 1, marginBottom: 24 }}>
             Let's Build<br /><span className="gradient-text">Something</span>
-          </h2>
+          </h1>
           <p className="reveal reveal-delay-1" style={{ color: 'var(--fg2)', lineHeight: 1.8, fontSize: 16, marginBottom: 48 }}>
             Have a project in mind, want to collaborate, or just want to say hi? My inbox is always open.
           </p>

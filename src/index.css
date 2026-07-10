@@ -15,6 +15,10 @@
   --nav-bg: oklch(0.96 0.01 60 / 0.9);
   --font: 'DM Sans', sans-serif;
   --mono: 'DM Mono', monospace;
+  /* z-index scale */
+  --z-progress: 800;
+  --z-cursor-ring: 900;
+  --z-cursor-dot: 901;
 }
 
 [data-theme="dark"] {
@@ -82,12 +86,12 @@ button, a { touch-action: manipulation; }
 /* ── Custom Cursor ── */
 #cursor-dot {
   position: fixed; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent); pointer-events: none; z-index: 9999;
+  background: var(--accent); pointer-events: none; z-index: var(--z-cursor-dot);
   transform: translate(-50%, -50%); transition: width .2s, height .2s, opacity .2s;
 }
 #cursor-ring {
   position: fixed; width: 36px; height: 36px; border-radius: 50%;
-  border: 1.5px solid var(--accent); pointer-events: none; z-index: 9998;
+  border: 1.5px solid var(--accent); pointer-events: none; z-index: var(--z-cursor-ring);
   transform: translate(-50%, -50%); opacity: 0.45;
   transition: width .3s, height .3s, opacity .3s;
 }
@@ -98,7 +102,7 @@ body.cursor-hover #cursor-ring { width: 54px; height: 54px; opacity: 0.2; }
 /* ── Scroll Progress ── */
 #scroll-progress {
   position: fixed; top: 0; left: 0; height: 2px;
-  background: var(--accent); z-index: 9997; transition: width .1s linear;
+  background: var(--accent); z-index: var(--z-progress); transition: width .1s linear;
 }
 
 /* ── Page Transitions ── */

@@ -1,6 +1,45 @@
 export const allProjects = [
   {
     id: 1,
+    title: 'Transfinance Mobile Approval',
+    subtitle: 'Enterprise Digital Approval App',
+    description: 'Flutter app and Express.js gateway securing cash advances and document signing via a hybrid RSA+AES cryptosystem.',
+    fullDesc: 'An enterprise-grade digital approval mobile application developed for PT Transpacific Finance. It enables paperless approval workflows, cash advance (Kasbon) requests, and FPPU document signing. High-risk financial payloads are secured over public networks using a hybrid RSA-2048 and AES-128-CBC encryption model.',
+    features: [
+      'RSA-2048 + AES-128-CBC hybrid encryption model for secure payload transit',
+      'Clean MVVM client architecture built with Flutter, Provider, and GetIt',
+      'Digital signature pad integration for direct document approval signing',
+      'Firebase Cloud Messaging (FCM) for real-time pending approval notifications',
+      'Secure Node.js & Express API gateway coordinating requests to the enterprise backend',
+      'Robust offline preference caching with Shared Preferences'
+    ],
+    image: '/projects/mobile-approval.png',
+    tags: ['Flutter', 'Dart', 'Node.js', 'Express.js', 'MySQL', 'Cryptography'],
+    demo: null,
+    github: null,
+    featured: true,
+  },
+  {
+    id: 2,
+    title: 'WBS',
+    subtitle: 'Whistleblowing System',
+    description: 'Two-sided anonymous misconduct reporting and tracking platform with secure admin dashboard.',
+    fullDesc: 'A two-sided Whistleblowing System (WBS) enabling public users to submit anonymous misconduct reports and securely track progress via unique tracking codes. Built with an admin dashboard to process reports through verification stages and interact with reporters via a secure, anonymous message thread.',
+    features: [
+      'Anonymous report submission & progress tracking via unique tracking codes',
+      'Interactive admin dashboard for report management and lifecycle updates',
+      'Secure chat thread for real-time, anonymous communication between admin and reporter',
+      'Support for secure file evidence uploads',
+      'Client compiled to a single, self-contained HTML file (using vite-plugin-singlefile) for easy deployment'
+    ],
+    image: null,
+    tags: ['React', 'Express.js', 'Prisma', 'PostgreSQL', 'TypeScript', 'Tailwind CSS'],
+    demo: null,
+    github: null,
+    featured: false,
+  },
+  {
+    id: 3,
     title: 'Hyve',
     subtitle: 'Note-Taking App',
     description: 'MERN-based note-taking app with gamification and OAuth login for collaborative academic use.',
@@ -10,10 +49,10 @@ export const allProjects = [
     tags: ['React', 'Express.js', 'Node.js', 'MongoDB', 'Tailwind CSS'],
     demo: 'https://hyveapp.netlify.app/',
     github: 'https://github.com/Axeldarren/Hyve-Notes-App',
-    featured: true,
+    featured: false,
   },
   {
-    id: 2,
+    id: 4,
     title: 'ITList',
     subtitle: 'Project Management App',
     description: 'Full-stack PM app centralizing project tracking, time management, and reporting for internal IT teams.',
@@ -26,7 +65,7 @@ export const allProjects = [
     featured: true,
   },
   {
-    id: 3,
+    id: 5,
     title: 'PRDify',
     subtitle: 'AI PRD Automation',
     description: 'Automates Product Requirement Document creation using LLMs for intelligent content generation.',
@@ -36,10 +75,10 @@ export const allProjects = [
     tags: ['Next.js', 'LLM', 'AI', 'Automation', 'Google Cloud'],
     demo: null,
     github: 'https://github.com/C242-PM02-TEAM',
-    featured: false,
+    featured: true,
   },
   {
-    id: 4,
+    id: 6,
     title: 'GenLingo',
     subtitle: 'AI Slang Learning Platform',
     description: 'Interactive platform using Llama 3.3 to teach Gen Z & Gen Alpha slang through AI chatbots, quizzes, and a Duolingo-style learning path.',
@@ -52,7 +91,7 @@ export const allProjects = [
     featured: true,
   },
   {
-    id: 5,
+    id: 7,
     title: 'Skin Cancer Detection',
     subtitle: 'ML on GCP',
     description: 'Backend for skin cancer detection using ML on Compute Engine and Firestore, via secure GCP REST API.',
@@ -65,7 +104,7 @@ export const allProjects = [
     featured: false,
   },
   {
-    id: 6,
+    id: 8,
     title: 'Password Manager',
     subtitle: 'C++ / DSA',
     description: 'C++ password manager using linked lists and encryption secured with a master password.',
@@ -77,6 +116,25 @@ export const allProjects = [
     github: 'https://github.com/Axeldarren/Password-Manager-Project-DSA-Repositories',
     featured: false,
   },
+  {
+    id: 9,
+    title: 'TEDx Sampoerna University Website',
+    subtitle: 'Event Landing Page',
+    description: 'Designed and developed the official TEDx event website using WordPress, featuring schedules and registration.',
+    fullDesc: 'Designed and built the official landing page for TEDx Sampoerna University during Google Developer Student Club (GDSC) lead tenure. Developed using WordPress with a focus on brand guidelines and high-traffic stability, featuring interactive event schedules, speaker profile grids, and seamless registration pipelines.',
+    features: [
+      'Custom theme design and development aligned with TEDx guidelines',
+      'Interactive speaker profile grids and dynamic event schedule timelines',
+      'Seamless ticket booking integration and attendee registration flow',
+      'Performance caching and CDN configuration for stability under load',
+      'Fully responsive mobile layouts for social media traffic'
+    ],
+    image: '/projects/tedx.png',
+    tags: ['WordPress', 'PHP', 'UI/UX', 'GDSC', 'Event Management'],
+    demo: null,
+    github: null,
+    featured: false,
+  },
 ];
 
 export const experiences = [
@@ -84,10 +142,10 @@ export const experiences = [
     id: 1,
     company: 'PT Transpacific Finance',
     location: 'Jakarta, ID',
-    period: 'Sep 2025 – Present',
+    period: 'Sep 2025 – May 2026',
     role: 'Mobile Developer Intern',
     type: 'engineering',
-    current: true,
+    current: false,
     about: 'Indonesian multi-purpose financing and fund facilities provider.',
     bullets: [
       'Engineered a production-grade procurement app published on Google Play Store & Apple App Store, serving 40+ internal users.',

@@ -25,10 +25,21 @@ export default function ProjectModal({ project, onClose }) {
         {project && (
           <>
             <div style={{ height: 260, position: 'relative', flexShrink: 0 }}>
-              <img
-                src={project.image} alt={project.title}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+              {project.image ? (
+                <img
+                  src={project.image} alt={project.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              ) : (
+                <div style={{
+                  width: '100%', height: '100%',
+                  background: 'linear-gradient(135deg, var(--bg2) 0%, var(--card) 100%)',
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 10,
+                }}>
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+                  <span style={{ fontSize: 11, fontFamily: 'var(--mono)', color: 'var(--fg3)', letterSpacing: '.1em', opacity: 0.6 }}>NDA PROTECTED</span>
+                </div>
+              )}
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom,transparent 20%,var(--bg) 100%)' }} />
               <button
                 onClick={onClose}
@@ -74,7 +85,7 @@ export default function ProjectModal({ project, onClose }) {
 
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                 {project.demo && <MagBtn accent href={project.demo} target="_blank">View Live Demo ↗</MagBtn>}
-                <MagBtn href={project.github} target="_blank">View on GitHub</MagBtn>
+                {project.github && <MagBtn href={project.github} target="_blank">View on GitHub</MagBtn>}
               </div>
             </div>
           </>

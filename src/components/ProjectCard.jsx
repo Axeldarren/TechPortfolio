@@ -42,15 +42,26 @@ export default function ProjectCard({ project, delay, large, onOpen }) {
       onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; }}
     >
       <div style={{ height: large ? 220 : 170, overflow: 'hidden', flexShrink: 0, position: 'relative' }}>
-        <img
-          src={project.image}
-          alt={project.title}
-          loading="lazy"
-          decoding="async"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .6s cubic-bezier(0.16,1,0.3,1)' }}
-          onMouseEnter={e => { e.target.style.transform = 'scale(1.07)'; }}
-          onMouseLeave={e => { e.target.style.transform = 'scale(1)'; }}
-        />
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            decoding="async"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .6s cubic-bezier(0.16,1,0.3,1)' }}
+            onMouseEnter={e => { e.target.style.transform = 'scale(1.07)'; }}
+            onMouseLeave={e => { e.target.style.transform = 'scale(1)'; }}
+          />
+        ) : (
+          <div style={{
+            width: '100%', height: '100%',
+            background: 'linear-gradient(135deg, var(--bg2) 0%, var(--card) 100%)',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8,
+          }}>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.35 }}><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+            <span style={{ fontSize: 10, fontFamily: 'var(--mono)', color: 'var(--fg3)', letterSpacing: '.1em', opacity: 0.6 }}>NDA PROTECTED</span>
+          </div>
+        )}
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom,transparent 45%,oklch(0 0 0/.4) 100%)' }} />
         {project.featured && (
           <div style={{
@@ -76,7 +87,7 @@ export default function ProjectCard({ project, delay, large, onOpen }) {
           </div>
           <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
             {project.demo && <ExtLink href={project.demo} label="↗" name={`${project.title} live demo`} />}
-            <ExtLink href={project.github} label="GH" name={`${project.title} on GitHub`} />
+            {project.github && <ExtLink href={project.github} label="GH" name={`${project.title} on GitHub`} />}
           </div>
         </div>
         <p style={{ color: 'var(--fg2)', fontSize: 13, lineHeight: 1.65, flex: 1 }}>{project.description}</p>

@@ -21,7 +21,7 @@ export default function ProjectsPage() {
       <SectionLabel label="03 / PROJECTS" />
 
       <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginTop: 32, marginBottom: 48, flexWrap: 'wrap', gap: 16 }}>
-        <h2 className="reveal" style={{ fontSize: 'clamp(28px,5vw,56px)', fontWeight: 800, letterSpacing: '-.04em', lineHeight: 1 }}>All<br />Projects</h2>
+        <h1 className="reveal" style={{ fontSize: 'clamp(28px,5vw,56px)', fontWeight: 800, letterSpacing: '-.04em', lineHeight: 1 }}>All<br />Projects</h1>
         <a
           className="reveal reveal-delay-1"
           href="https://github.com/Axeldarren" target="_blank" rel="noopener noreferrer"

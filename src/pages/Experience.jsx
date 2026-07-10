@@ -12,15 +12,19 @@ export default function ExperiencePage() {
   const fillRef = useRef(null);
 
   useEffect(() => {
+    let rafId;
     const onScroll = () => {
-      const el = timelineRef.current; if (!el) return;
-      const r = el.getBoundingClientRect();
-      const progress = Math.min(Math.max((window.innerHeight - r.top) / (r.height + window.innerHeight * 0.5), 0), 1);
-      setLineH(progress * 100);
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const el = timelineRef.current; if (!el) return;
+        const r = el.getBoundingClientRect();
+        const progress = Math.min(Math.max((window.innerHeight - r.top) / (r.height + window.innerHeight * 0.5), 0), 1);
+        setLineH(progress * 100);
+      });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(rafId); };
   }, []);
 
   useEffect(() => {
@@ -41,7 +45,7 @@ export default function ExperiencePage() {
       <SectionLabel label="02 / EXPERIENCE" />
 
       <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginTop: 32, marginBottom: 48, flexWrap: 'wrap', gap: 20 }}>
-        <h2 className="reveal" style={{ fontSize: 'clamp(28px,5vw,56px)', fontWeight: 800, letterSpacing: '-.04em', lineHeight: 1.0 }}>Work<br />Timeline</h2>
+        <h1 className="reveal" style={{ fontSize: 'clamp(28px,5vw,56px)', fontWeight: 800, letterSpacing: '-.04em', lineHeight: 1.0 }}>Work<br />Timeline</h1>
         <div className="reveal reveal-delay-1" style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {types.map(t => (
             <button
