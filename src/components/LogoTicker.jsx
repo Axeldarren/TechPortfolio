@@ -19,20 +19,6 @@ const logos = [
     height: 42
   },
   {
-    name: 'Connextion',
-    svg: (
-      <svg viewBox="0 0 135 30" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ height: 34, width: 'auto' }}>
-        <circle cx="7" cy="15" r="3" fill="var(--accent)" />
-        <circle cx="19" cy="7" r="3" fill="currentColor" />
-        <circle cx="19" cy="23" r="3" fill="currentColor" />
-        <line x1="7" y1="15" x2="19" y2="7" stroke="var(--fg3)" strokeWidth="1.5" />
-        <line x1="7" y1="15" x2="19" y2="23" stroke="var(--fg3)" strokeWidth="1.5" />
-        <line x1="19" y1="7" x2="19" y2="23" stroke="var(--accent)" strokeWidth="1.5" />
-        <text x="32" y="20" fontFamily="var(--font-sans, system-ui, -apple-system, sans-serif)" fontWeight="800" fontSize="13" letterSpacing="0.8" fill="currentColor">CONNEXTION</text>
-      </svg>
-    )
-  },
-  {
     name: 'PT SPIL',
     imgSrc: '/logos/spil.png',
     height: 52
@@ -84,7 +70,7 @@ export default function LogoTicker() {
         .logo-ticker-grid {
           flex-grow: 1;
           display: grid;
-          grid-template-columns: repeat(6, 1fr);
+          grid-template-columns: repeat(5, 1fr);
           gap: 24px;
           align-items: center;
           justify-items: center;
