@@ -35,7 +35,7 @@ export default function ProjectCard({ project, delay, large, onOpen }) {
       style={{
         background: 'var(--card)', borderRadius: 16,
         border: '1px solid var(--card-border)',
-        overflow: 'hidden', cursor: 'none',
+        overflow: 'hidden', cursor: 'pointer',
         display: 'flex', flexDirection: 'column',
       }}
       onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 20px 60px oklch(0 0 0/.13)'; }}

@@ -37,7 +37,7 @@ export default function ExpEntry({ exp, delay }) {
           background: 'var(--card)', borderRadius: 14,
           border: '1px solid var(--card-border)', padding: '22px 26px',
           marginLeft: 16, transition: 'border-color .2s, box-shadow .3s, transform .2s',
-          cursor: 'none',
+          cursor: 'pointer',
         }}
         onClick={() => setOpen(v => !v)}
         onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 40px oklch(0 0 0/.1)'; e.currentTarget.style.transform = 'translateX(4px)'; }}

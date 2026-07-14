@@ -29,7 +29,7 @@ function App() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('portfolio-theme', theme);
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', theme === 'dark' ? '#0e0c0a' : '#f5f2ee');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#0e0c0a' : '#f7f6f3');
   }, [theme]);
 
   useEffect(() => {

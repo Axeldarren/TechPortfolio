@@ -11,11 +11,11 @@ export default function Cursor() {
 
     const onMove = e => {
       mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+      dot.style.transform = `translate3d(calc(${mx}px - 50%), calc(${my}px - 50%), 0)`;
     };
     const loop = () => {
       rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      ring.style.transform = `translate3d(calc(${rx}px - 50%), calc(${ry}px - 50%), 0)`;
       requestAnimationFrame(loop);
     };
     const onOver = e => { if (e.target.closest('a,button,[data-hover]')) document.body.classList.add('cursor-hover'); };

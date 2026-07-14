@@ -3,7 +3,6 @@ import { Mail, MapPin, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useReveal } from '../hooks';
 import { useToast } from '../hooks/use-toast';
-import SectionLabel from '../components/SectionLabel';
 import MagBtn from '../components/MagBtn';
 
 export default function ContactPage() {
@@ -85,7 +84,6 @@ export default function ContactPage() {
 
   return (
     <div className="page-enter" style={{ padding: '120px 32px 80px', maxWidth: 1100, margin: '0 auto' }}>
-      <SectionLabel label="04 / CONTACT" />
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, marginTop: 64, alignItems: 'start' }} className="contact-grid">
         {/* Left column */}
@@ -151,7 +149,7 @@ export default function ContactPage() {
             </div>
             <button
               type="submit" disabled={sending}
-              style={{ background: 'var(--accent)', color: '#fff', border: 'none', padding: 14, borderRadius: 10, fontWeight: 600, fontSize: 15, cursor: 'none', opacity: sending ? .7 : 1, fontFamily: 'var(--font)', transition: 'box-shadow .3s, transform .2s' }}
+              style={{ background: 'var(--accent)', color: '#fff', border: 'none', padding: 14, borderRadius: 10, fontWeight: 600, fontSize: 15, cursor: 'pointer', opacity: sending ? .7 : 1, fontFamily: 'var(--font)', transition: 'box-shadow .3s, transform .2s' }}
               onMouseEnter={e => { e.target.style.boxShadow = '0 8px 32px var(--accent-dim2)'; e.target.style.transform = 'translateY(-1px)'; }}
               onMouseLeave={e => { e.target.style.boxShadow = 'none'; e.target.style.transform = 'none'; }}
             >

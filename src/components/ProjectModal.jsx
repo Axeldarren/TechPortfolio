@@ -49,7 +49,7 @@ export default function ProjectModal({ project, onClose }) {
                   width: 44, height: 44, borderRadius: '50%',
                   border: '1.5px solid rgba(255,255,255,.3)',
                   background: 'oklch(0 0 0/.45)', backdropFilter: 'blur(8px)',
-                  color: '#fff', fontSize: 18, cursor: 'none',
+                  color: '#fff', fontSize: 18, cursor: 'pointer',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}
               >×</button>

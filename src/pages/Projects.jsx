@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useReveal } from '../hooks';
 import { allProjects } from '../data';
-import SectionLabel from '../components/SectionLabel';
 import ProjectCard from '../components/ProjectCard';
 import ProjectModal from '../components/ProjectModal';
 
@@ -18,9 +17,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="page-enter" style={{ padding: '120px 32px 80px', maxWidth: 1100, margin: '0 auto' }}>
-      <SectionLabel label="03 / PROJECTS" />
-
-      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginTop: 32, marginBottom: 48, flexWrap: 'wrap', gap: 16 }}>
+      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 48, flexWrap: 'wrap', gap: 16 }}>
         <h1 className="reveal" style={{ fontSize: 'clamp(28px,5vw,56px)', fontWeight: 800, letterSpacing: '-.04em', lineHeight: 1 }}>All<br />Projects</h1>
         <a
           className="reveal reveal-delay-1"
@@ -35,7 +32,7 @@ export default function ProjectsPage() {
             key={t} onClick={() => setFilter(t)}
             style={{
               padding: '9px 16px', borderRadius: 99, fontSize: 11, fontWeight: 500,
-              cursor: 'none', fontFamily: 'var(--mono)', letterSpacing: '.04em',
+              cursor: 'pointer', fontFamily: 'var(--mono)', letterSpacing: '.04em',
               border: '1px solid',
               background: filter === t ? 'var(--accent)' : 'transparent',
               color: filter === t ? '#fff' : 'var(--fg2)',

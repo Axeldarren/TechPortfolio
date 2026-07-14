@@ -13,7 +13,7 @@ export default function Footer({ goTo }) {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 24 }}>
           <button
             onClick={() => goTo('home')}
-            style={{ background: 'none', border: 'none', cursor: 'none', fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--fg3)', padding: 0 }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--fg3)', padding: 0 }}
           >
             ADS / portfolio
           </button>
@@ -23,7 +23,7 @@ export default function Footer({ goTo }) {
               <button
                 key={p}
                 onClick={() => { goTo(p); window.scrollTo(0, 0); }}
-                style={{ background: 'none', border: 'none', cursor: 'none', fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--fg3)', padding: '12px 4px', letterSpacing: '.04em', transition: 'color .2s' }}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--fg3)', padding: '12px 4px', letterSpacing: '.04em', transition: 'color .2s' }}
                 onMouseEnter={e => { e.target.style.color = 'var(--accent)'; }}
                 onMouseLeave={e => { e.target.style.color = 'var(--fg3)'; }}
               >

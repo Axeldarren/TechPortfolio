@@ -7,7 +7,7 @@ function ThemeToggle({ theme, toggle }) {
     <button
       onClick={toggle}
       style={{
-        background: 'none', border: 'none', cursor: 'none',
+        background: 'none', border: 'none', cursor: 'pointer',
         padding: 10, margin: -10, display: 'flex',
       }}
       aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
@@ -62,7 +62,7 @@ function NavLink({ label, active, onClick }) {
       <button
         onClick={onClick}
         style={{
-          background: 'none', border: 'none', cursor: 'none',
+          background: 'none', border: 'none', cursor: 'pointer',
           fontSize: 13, fontWeight: 500,
           color: active ? 'var(--accent)' : 'var(--fg2)',
           transition: 'color .2s', fontFamily: 'var(--font)',
@@ -112,7 +112,7 @@ export default function Navbar({ page, theme, toggleTheme, goTo }) {
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <button
           onClick={() => go('home')}
-          style={{ background: 'none', border: 'none', cursor: 'none', display: 'flex', alignItems: 'center', gap: 8, padding: 0 }}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, padding: 0 }}
         >
           <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--accent)', fontWeight: 500 }}>ADS</span>
           <span style={{ fontSize: 12, color: 'var(--fg3)' }}>/ portfolio</span>
@@ -132,7 +132,7 @@ export default function Navbar({ page, theme, toggleTheme, goTo }) {
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
             style={{
-              background: 'none', border: 'none', cursor: 'none', color: 'var(--fg)',
+              background: 'none', border: 'none', cursor: 'pointer', color: 'var(--fg)',
               width: 44, height: 44, margin: '-10px -10px -10px 0',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}
@@ -157,7 +157,7 @@ export default function Navbar({ page, theme, toggleTheme, goTo }) {
             key={p} onClick={() => go(p)}
             tabIndex={menuOpen ? 0 : -1}
             style={{
-              background: 'none', border: 'none', cursor: 'none',
+              background: 'none', border: 'none', cursor: 'pointer',
               fontSize: 28, fontWeight: 700, padding: '8px 24px',
               color: page === p ? 'var(--accent)' : 'var(--fg)',
               fontFamily: 'var(--font)',

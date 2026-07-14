@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useReveal } from '../hooks';
 import { experiences, typeColors, typeLabels } from '../data';
-import SectionLabel from '../components/SectionLabel';
 import ExpEntry from '../components/ExpEntry';
 
 export default function ExperiencePage() {
@@ -42,9 +41,7 @@ export default function ExperiencePage() {
 
   return (
     <div className="page-enter" style={{ padding: '120px 32px 80px', maxWidth: 1100, margin: '0 auto' }}>
-      <SectionLabel label="02 / EXPERIENCE" />
-
-      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginTop: 32, marginBottom: 48, flexWrap: 'wrap', gap: 20 }}>
+      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginTop: 0, marginBottom: 48, flexWrap: 'wrap', gap: 20 }}>
         <h1 className="reveal" style={{ fontSize: 'clamp(28px,5vw,56px)', fontWeight: 800, letterSpacing: '-.04em', lineHeight: 1.0 }}>Work<br />Timeline</h1>
         <div className="reveal reveal-delay-1" style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {types.map(t => (
@@ -52,7 +49,7 @@ export default function ExperiencePage() {
               key={t} onClick={() => setFilter(t)}
               style={{
                 padding: '6px 14px', borderRadius: 99, fontSize: 11, fontWeight: 500,
-                cursor: 'none', fontFamily: 'var(--mono)', letterSpacing: '.04em',
+                cursor: 'pointer', fontFamily: 'var(--mono)', letterSpacing: '.04em',
                 border: '1px solid',
                 background: filter === t ? (typeColors[t] || 'var(--accent)') : 'transparent',
                 color: filter === t ? '#fff' : 'var(--fg2)',
