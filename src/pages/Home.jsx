@@ -137,20 +137,21 @@ export default function HomePage({ goTo }) {
             {experiences.slice(0, 4).map((exp, i) => (
               <div
                 key={exp.id}
-                className={`reveal reveal-delay-${Math.min(i + 1, 4)}`}
+                className={`exp-teaser-row reveal reveal-delay-${Math.min(i + 1, 4)}`}
                 style={{
                   padding: '20px 0 20px 20px',
                   borderLeft: `2px solid ${typeColors[exp.type] || 'var(--accent)'}`,
                   borderBottom: '1px solid var(--card-border)',
-                  display: 'grid', gridTemplateColumns: '140px 1fr auto', gap: 16, alignItems: 'center',
                 }}
               >
-                <span style={{ fontSize: 13, color: 'var(--fg3)' }}>{exp.period}</span>
-                <div>
+                <span className="exp-teaser-date" style={{ fontSize: 13, fontFamily: 'var(--mono)', color: 'var(--fg3)', letterSpacing: '.02em', whiteSpace: 'nowrap' }}>{exp.period}</span>
+                <div className="exp-teaser-info">
                   <span style={{ fontWeight: 700, fontSize: 15, letterSpacing: '-.01em' }}>{exp.company}</span>
-                  <span style={{ fontSize: 13, color: 'var(--fg2)', marginLeft: 12 }}>{exp.role}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                    <span className="exp-teaser-role" style={{ fontSize: 13, color: 'var(--fg2)' }}>{exp.role}</span>
+                    <span className="exp-teaser-tag" style={{ fontSize: 11, fontFamily: 'var(--mono)', padding: '2px 8px', borderRadius: 4, background: `${typeColors[exp.type] || 'var(--accent)'}15`, color: typeColors[exp.type] || 'var(--accent)', fontWeight: 500, whiteSpace: 'nowrap' }}>{typeLabels[exp.type] || 'Engineering'}</span>
+                  </div>
                 </div>
-                <span style={{ fontSize: 11, fontFamily: 'var(--mono)', padding: '2px 8px', borderRadius: 4, background: `${typeColors[exp.type] || 'var(--accent)'}15`, color: typeColors[exp.type] || 'var(--accent)', fontWeight: 500 }}>{typeLabels[exp.type] || 'Engineering'}</span>
               </div>
             ))}
           </div>

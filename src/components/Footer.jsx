@@ -1,9 +1,11 @@
+import { Linkedin, Github, Instagram } from 'lucide-react';
+
 export default function Footer({ goTo }) {
   const links = [['Experience', 'experience'], ['Projects', 'projects'], ['Contact', 'contact']];
   const socials = [
-    { l: 'LinkedIn', h: 'https://www.linkedin.com/in/axelsuryanto/' },
-    { l: 'GitHub', h: 'https://github.com/Axeldarren' },
-    { l: 'Instagram', h: 'https://www.instagram.com/axel_suryanto/' },
+    { l: 'LinkedIn', h: 'https://www.linkedin.com/in/axelsuryanto/', icon: Linkedin },
+    { l: 'GitHub', h: 'https://github.com/Axeldarren', icon: Github },
+    { l: 'Instagram', h: 'https://www.instagram.com/axel_suryanto/', icon: Instagram },
   ];
 
   return (
@@ -43,22 +45,28 @@ export default function Footer({ goTo }) {
           </span>
 
           <div style={{ display: 'flex', gap: 16 }}>
-            {socials.map(s => (
-              <a
-                key={s.l}
-                href={s.h}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--fg3)', textDecoration: 'none', transition: 'color .2s' }}
-                onMouseEnter={e => { e.target.style.color = 'var(--accent)'; }}
-                onMouseLeave={e => { e.target.style.color = 'var(--fg3)'; }}
-              >
-                {s.l} ↗
-              </a>
-            ))}
+            {socials.map(s => {
+              const Icon = s.icon;
+              return (
+                <a
+                  key={s.l}
+                  href={s.h}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.l}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--fg3)', textDecoration: 'none', transition: 'color .2s' }}
+                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--accent)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.color = 'var(--fg3)'; }}
+                >
+                  <Icon size={14} strokeWidth={1.5} />
+                  {s.l}
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
     </footer>
   );
 }
+

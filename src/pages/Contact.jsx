@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, MapPin, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, MessageCircle, Linkedin, Github, Instagram } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useReveal } from '../hooks';
 import { useToast } from '../hooks/use-toast';
@@ -77,9 +77,9 @@ export default function ContactPage() {
   ];
 
   const socials = [
-    { l: 'LinkedIn', h: 'https://www.linkedin.com/in/axelsuryanto/' },
-    { l: 'GitHub', h: 'https://github.com/Axeldarren' },
-    { l: 'Instagram', h: 'https://www.instagram.com/axel_suryanto/' },
+    { l: 'LinkedIn', h: 'https://www.linkedin.com/in/axelsuryanto/', icon: Linkedin },
+    { l: 'GitHub', h: 'https://github.com/Axeldarren', icon: Github },
+    { l: 'Instagram', h: 'https://www.instagram.com/axel_suryanto/', icon: Instagram },
   ];
 
   return (
@@ -111,14 +111,17 @@ export default function ContactPage() {
           </div>
 
           <div className="reveal reveal-delay-3" style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            {socials.map(s => (
-              <a
-                key={s.l} href={s.h} target="_blank" rel="noopener noreferrer"
-                style={{ padding: '8px 16px', borderRadius: 8, fontSize: 12, fontFamily: 'var(--mono)', fontWeight: 500, textDecoration: 'none', border: '1px solid var(--card-border)', color: 'var(--fg2)', transition: 'all .2s', letterSpacing: '.04em' }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)'; e.currentTarget.style.background = 'var(--accent-dim)'; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--fg2)'; e.currentTarget.style.background = 'transparent'; }}
-              >{s.l} ↗</a>
-            ))}
+            {socials.map(s => {
+              const Icon = s.icon;
+              return (
+                <a
+                  key={s.l} href={s.h} target="_blank" rel="noopener noreferrer"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 16px', borderRadius: 8, fontSize: 12, fontFamily: 'var(--mono)', fontWeight: 500, textDecoration: 'none', border: '1px solid var(--card-border)', color: 'var(--fg2)', transition: 'all .2s', letterSpacing: '.04em' }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)'; e.currentTarget.style.background = 'var(--accent-dim)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--fg2)'; e.currentTarget.style.background = 'transparent'; }}
+                ><Icon size={14} strokeWidth={1.5} /> {s.l}</a>
+              );
+            })}
           </div>
         </div>
 
