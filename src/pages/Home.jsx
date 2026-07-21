@@ -7,15 +7,25 @@ import ProjectCard from '../components/ProjectCard';
 import ProjectModal from '../components/ProjectModal';
 import Terminal from '../components/Terminal';
 
-const CV_URL = 'https://drive.google.com/uc?export=download&id=12bWf8EbfKedqNg9uT3zcQuBiNl7T9_sv';
+const CV_URL = '/CV_Axel_Darren_Suryanto.pdf';
 
 function FeaturedProjectGrid() {
   const [selected, setSelected] = useState(null);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
   const featured = allProjects.filter(p => p.featured);
+  const visible = isMobile ? featured.slice(0, 2) : featured;
+
   return (
     <>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 20 }} className="bento-grid">
-        {featured.map((p, i) => (
+        {visible.map((p, i) => (
           <ProjectCard key={p.id} project={p} delay={i + 1} large onOpen={() => setSelected(p)} />
         ))}
       </div>
